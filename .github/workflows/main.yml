@@ -32,8 +32,7 @@ jobs:
       - name: Build with Maven
         run: |
           mvn clean install
-          pwd
-          ls /target
+
           
         env:
           JAVA_HOME: ${{ env.JAVA_HOME }}
