@@ -16,15 +16,16 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
-       java-version: 11
-       distribution: 'ubuntu'  # Specify the Linux distribution here
-       java-package: jdk
-       check-latest: false
-       server-id: github
-       server-username: ${{ github.actor }}
-       server-password: ${{ secrets.GITHUB_TOKEN }}
-       overwrite-settings: true
-       job-status: success
+        java-version: 11
+        distribution: 'adopt'  # Replace with the identified distribution
+        java-package: jdk
+        check-latest: false
+        server-id: github
+        server-username: ${{ github.actor }}
+        server-password: ${{ secrets.GITHUB_TOKEN }}
+        overwrite-settings: true
+        job-status: success
+  
 
 
     - name: Build with Maven
