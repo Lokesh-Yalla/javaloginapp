@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 11
-          distribution: 'adopt'  # Replace with the identified distribution
+          distribution: 'adopt'
           java-package: jdk
           check-latest: false
           server-id: github
@@ -27,7 +27,7 @@ jobs:
       - name: Install Maven
         run: |
           sudo apt update
-          sudo apt install maven
+          sudo apt install -y maven
 
       - name: Build with Maven
         run: |
