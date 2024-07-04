@@ -36,7 +36,6 @@ jobs:
           
       - name: Deploy to EC2
         run: |
-          chmod 400 test.pem
           ls -ltr
           scp -i test.pem -o StrictHostKeyChecking=no target/valaxy-2.0-RELEASE.war root@3.133.91.158:/home/
           ssh -i test.pem -o StrictHostKeyChecking=no root@3.133.91.158 'bash -s' < ./deploy/deploy.sh
