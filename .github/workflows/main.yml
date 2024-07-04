@@ -37,8 +37,8 @@ jobs:
       - name: Deploy to EC2
         run: |
           ls -ltr
-          scp -i test.pem -o StrictHostKeyChecking=no target/valaxy-2.0-RELEASE.war root@3.133.91.158:/home/
-          ssh -i test.pem -o StrictHostKeyChecking=no root@3.133.91.158 'bash -s' < ./deploy/deploy.sh
+
+          ssh -i test.pem root@3.133.91.158.compute-1.amazonaws.com
         env:
           JAVA_HOME: ${{ env.JAVA_HOME }}
           JAVA_HOME_11_X64: ${{ env.JAVA_HOME_11_X64 }}
