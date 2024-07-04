@@ -32,8 +32,12 @@ jobs:
       - name: Build with Maven
         run: |
           mvn clean install
-
+          ls
           
+      - name: Deploy to EC2
+        run: |
+          scp -i testyour.pem -o StrictHostKeyChecking=no target/your-app.jar ec2-user@your-ec2-public-ip:/home/ec2-user/
+          # ssh -i /path/to/your.pem -o StrictHostKeyChecking=no ec2-user@your-ec2-public-ip 'bash -s' < ./deploy/deploy.sh
         env:
           JAVA_HOME: ${{ env.JAVA_HOME }}
           JAVA_HOME_11_X64: ${{ env.JAVA_HOME_11_X64 }}
