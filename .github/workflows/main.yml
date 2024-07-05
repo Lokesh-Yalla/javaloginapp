@@ -33,6 +33,9 @@ jobs:
         run: |
           mvn clean install -DskipTests
           ls target
-          
+      - name: Build with Maven
+        run: |
+          docker build -t my-java-app .
+
 
 
