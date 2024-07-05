@@ -34,11 +34,5 @@ jobs:
           mvn clean install -DskipTests
           ls target
           
-      - name: Deploy to EC2
-        run: |
-          ls -ltr
 
-          ssh -i test.pem root@3.133.91.158
-        env:
-          JAVA_HOME: ${{ env.JAVA_HOME }}
-          JAVA_HOME_11_X64: ${{ env.JAVA_HOME_11_X64 }}
+
