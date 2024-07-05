@@ -33,7 +33,11 @@ jobs:
         run: |
           mvn clean install -DskipTests
           ls target
-      - name: Build with Maven
+
+      - name: docker login
+        run: |
+          aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 058264108741.dkr.ecr.us-east-2.amazonaws.com
+      - name: Build and push
         run: |
           docker build -t aws-ecr-demo .
           docker tag aws-ecr-demo:latest 058264108741.dkr.ecr.us-east-2.amazonaws.com/aws-ecr-demo:latest
